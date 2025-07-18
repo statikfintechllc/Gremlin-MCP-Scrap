@@ -1,12 +1,39 @@
 {
-  "name": "mcp-gremlin-scraper",
+  "name": "@statikfintech/gremlin-scraper",
   "version": "0.0.1",
-  "description": "GremlinGPT's web scraping MCP service",
-  "bin": {
-    "mcp-gremlin-scraper": "./index.js"
-  },
+  "description": "Scrapes readable text from a URL using Flask and BeautifulSoup. Lightweight HTTP-based MCP.",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {}
+  "bin": {
+    "gremlin-scraper": "./index.js"
+  },
+  "keywords": [
+    "mcp",
+    "scraper",
+    "flask",
+    "beautifulsoup",
+    "gremlin",
+    "ai",
+    "agent",
+    "web",
+    "runtime"
+  ],
+  "author": "StatikFinTech, LLC",
+  "license": "MIT",
+  "mcp": {
+    "id": "gremlinScraper",
+    "name": "Gremlin Web Scraper MCP",
+    "description": "Scrapes readable text from a URL using Flask and BeautifulSoup. Lightweight HTTP-based MCP.",
+    "type": "http",
+    "entry": "index.js",
+    "url": "http://localhost:8742",
+    "port": 8742,
+    "gallery": true
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
 }

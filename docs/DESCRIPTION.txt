@@ -1,1 +1,0 @@
-GremlinOS MCP runtime for scraping and orchestration. Part of StatikFinTech Systems.

@@ -1,10 +1,15 @@
 {
   "id": "gremlinScraper",
   "name": "Gremlin Web Scraper MCP",
-  "description": "Lightweight web scraper callable via HTTP MCP runtime.",
+  "description": "Scrapes readable text from a URL using Flask and BeautifulSoup. Lightweight HTTP-based MCP.",
   "type": "http",
+  "entry": "index.js",
   "url": "http://localhost:8742",
-  "entry": "server.py",
   "port": 8742,
-  "gallery": true
+  "gallery": true,
+  "metadata": {
+    "version": "0.0.1",
+    "author": "StatikFinTech, LLC",
+    "license": "MIT"
+  }
 }
