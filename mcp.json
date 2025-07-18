@@ -1,0 +1,10 @@
+{
+  "id": "gremlinScraper",
+  "name": "Gremlin Web Scraper MCP",
+  "description": "Lightweight web scraper callable via HTTP MCP runtime.",
+  "type": "http",
+  "url": "http://localhost:8742",
+  "entry": "server.py",
+  "port": 8742,
+  "gallery": true
+}
