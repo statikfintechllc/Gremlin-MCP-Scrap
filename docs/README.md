@@ -60,6 +60,8 @@ href="tel:+16202669837">
 
 # Gremlin Web Scraper MCP
 
+</div>
+
 GremlinScraper is a lightweight HTTP MCP module designed to scrape visible text from any publicly accessible webpage. It runs locally, integrates directly with VS Code’s MCP system, and speaks plain JSON. 
 
 > This is Part 1 of the **GremlinOS Runtime Suite** from **StatikFinTech LLC**.
