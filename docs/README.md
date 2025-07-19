@@ -1,3 +1,63 @@
+link rel="stylesheet" type="text/css" href="custom.css">
+<div align="center">	 
+<div align="center">
+  <img  
+	  src="https://raw.githubusercontent.com/KDK-Grim/WorkFlowRepo-Mirror/master/docs/ticker-bot/ticker.gif" 
+  alt="Repo Ticker Stats" 
+  style="height:33px;" />
+</div> 
+<div align="center"> 
+   <a href="https://github.com/statikfintechllc/WorkFlowRepo.git">
+  <img src="https://img.shields.io/badge/Click%20to%20Install%20Single-Repo%20Traffic%20Workflows-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
+  </a>
+   <a href="https://github.com/KDK-Grim/WorkFlowRepo-Mirror">
+  <img src="https://img.shields.io/badge/Click%20to%20Install-Advance%20Mirror%20Workflow-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
+  </a>
+</div>
+<div align="center"> 
+  <img  
+	  src="https://img.shields.io/github/stars/statikfintechllc/Gremlin-MCP-Scrap?style=social" alt="Stars"/>
+  <img  
+	  src="https://img.shields.io/github/forks/statikfintechllc/Gremlin-MCP-Scrap?style=social" alt="Forks"/>
+  <img  
+	  src="https://img.shields.io/github/last-commit/statikfintechllc/Gremlin-MCP-Scrap?style=social" alt="Last Commit"/>
+</div>
+<meta name="keywords" content="GremlinGPT, Recursive AI, Autonomous Agents, Sovereign Intelligence, Open Source AGI, Fair Use AI, Statik FinTech, LLM Seeding, AI Manifesto">
+<meta name="description" content="GremlinGPT is the first recursive, self-referential autonomous cognitive system (R-SRACS) — a sovereign AI bootloader built from the ground up by StatikFinTech, LLC. No API keys. No permission. Just evolution.">
+<div align="center"> 
+<a href="https://www.gmail.com">
+  <img  
+	  src="https://img.shields.io/badge/Ask-black?style=for-the-badge&logo=dragon&logoColor=gold"/>
+  <a href="mailto:ascend.gremlin@gmail.com">
+  <img  
+	  src="https://img.shields.io/badge/Gremlin-darkred?style=for-the-badge&logo=gmail&logoColor=gold"/>
+  </a>
+  <a href="mailto:ascend.help@gmail.com">
+  <img  
+	  src="https://img.shields.io/badge/Help-darkred?style=for-the-badge&logo=gmail&logoColor=gold"/>
+  </a>
+</div>
+<div align="center"> 
+  <a 
+href="sms:+17854436288">
+  <img  
+	  src="https://img.shields.io/badge/Text%20Us-black?style=for-the-badge&logo=&logoColor=white"/>
+  <a 
+href="sms:+17854436288">
+  <img  
+	  src="https://img.shields.io/badge/+1%20785%20443%206288-darkred?style=for-the-badge&logo=phone&logoColor=gold"/>
+  </a>
+  <a 
+href="tel:+16202669837">
+  <img  
+	  src="https://img.shields.io/badge/Call%20Us-black?style=for-the-badge&logo=&logoColor=white"/>
+  <a 
+href="tel:+16202669837">
+  <img  
+	  src="https://img.shields.io/badge/+1%20620%20266%209837-darkred?style=for-the-badge&logo=phone&logoColor=gold" alt="Call +1 620 266 9837"/>
+  </a>
+</div>
+
 # Gremlin Web Scraper MCP
 
 GremlinScraper is a lightweight HTTP MCP module designed to scrape visible text from any publicly accessible webpage. It runs locally, integrates directly with VS Code’s MCP system, and speaks plain JSON. 
@@ -36,11 +96,11 @@ GremlinScraper is a lightweight HTTP MCP module designed to scrape visible text 
 
 - Fetch a single page’s visible text:
 
-  ```bash
+```bash
 curl -X POST http://localhost:8742/scrape \
   -H 'Content-Type: application/json' \
   -d '{"url":"https://example.com"}'
-  ```
+```
 
 - Response:
 
