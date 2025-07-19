@@ -2,12 +2,15 @@
 
 ```
 mcp-gremlin-scraper/
-    ├── package.json          # Makes it an npx-able Node package
-    ├── index.js              # Launch script (acts like npx entry point)
-    ├── server.py             # Your Flask backend
-    ├── requirements.txt
+    ├── LICENSE          
+    ├── package.json          # npm metadata + MCP descriptor
+    ├── index.js              # Node launcher: installs deps & boots Flask server
+    ├── server.py             # Flask app exposing /scrape, /crawl, /crawl-stream, /mcp/metadata, /ping
+    ├── mcp_crawler.py        # AsyncWebCrawler: multi‐page crawler implementation
+    ├── mcp.json              # Standalone MCP metadata file
+    ├── requirements.txt      # Python dependencies for Flask, httpx, BeautifulSoup, Loguru
     └── docs/
-        ├── STRUCTURE.md
-        ├── DESCRIPTION.md
-        └── README.md
+          ├── STRUCTURE.md      # This file: directory overview
+          ├── DESCRIPTION.md    # Detailed service description & usage examples
+          └── README.md         # Getting-started guide & installation instructions
 ```

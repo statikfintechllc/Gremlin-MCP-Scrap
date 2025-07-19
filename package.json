@@ -1,9 +1,9 @@
 {
   "name": "@statikfintech/gremlin-scraper",
   "version": "0.0.1",
-  "description": "Scrapes readable text from a URL using Flask and BeautifulSoup. Lightweight HTTP-based MCP.",
+  "description": "Scrapes and crawls text from URLs using Flask, BeautifulSoup, and an async crawler. Lightweight HTTP-based MCP.",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node index.js"
   },
@@ -13,8 +13,10 @@
   "keywords": [
     "mcp",
     "scraper",
+    "crawler",
     "flask",
     "beautifulsoup",
+    "httpx",
     "gremlin",
     "ai",
     "agent",
@@ -26,12 +28,39 @@
   "mcp": {
     "id": "gremlinScraper",
     "name": "Gremlin Web Scraper MCP",
-    "description": "Scrapes readable text from a URL using Flask and BeautifulSoup. Lightweight HTTP-based MCP.",
+    "description": "Scrapes and crawls text from URLs via HTTP endpoints. Supports single-page scrape, multi-page crawl, and streaming crawl.",
     "type": "http",
     "entry": "index.js",
     "url": "http://localhost:8742",
     "port": 8742,
-    "gallery": true
+    "gallery": true,
+    "endpoints": [
+      {
+        "path": "/scrape",
+        "method": "POST",
+        "description": "Single-page text scrape"
+      },
+      {
+        "path": "/crawl",
+        "method": "POST",
+        "description": "Multi-page crawl up to max_pages/depth"
+      },
+      {
+        "path": "/crawl-stream",
+        "method": "POST",
+        "description": "Streaming multi-page crawl"
+      },
+      {
+        "path": "/ping",
+        "method": "GET",
+        "description": "Health check"
+      },
+      {
+        "path": "/mcp/metadata",
+        "method": "GET",
+        "description": "Service metadata"
+      }
+    ]
   },
   "dependencies": {
     "chalk": "^5.3.0"

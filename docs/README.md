@@ -30,27 +30,99 @@ GremlinScraper is a lightweight HTTP MCP module designed to scrape visible text 
 
 ---
 
-## 📦 Endpoints
+## 📦 Endpoints & Examples
 
-- POST /scrape
+**1. POST /scrape**
 
-  ```bash
-  {
-    "url": "https://example.com"
-  }
-  ```
-
-- Returns:
+- Fetch a single page’s visible text:
 
   ```bash
-  {
-    "url": "https://example.com"
-  }
+curl -X POST http://localhost:8742/scrape \
+  -H 'Content-Type: application/json' \
+  -d '{"url":"https://example.com"}'
   ```
 
-- GET /mcp/metadata
+- Response:
 
-`Returns MCP metadata so VS Code knows what this thing is.`
+```json
+{
+  "text": "Example Domain\n\nThis domain is for use in illustrative examples in documents.\n..."
+}
+```
+
+**2. POST /crawl**
+
+- Recursively crawl same-domain links:
+
+```bash
+curl -X POST http://localhost:8742/crawl \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "url":"https://example.com",
+    "max_pages":10,
+    "max_depth":2,
+    "concurrency":5
+  }'
+```
+
+- Response: 
+
+```json
+{
+  "https://example.com": "Example Domain\n\nThis domain is for use…",
+  "https://example.com/about": "About Us\n\n…",
+  "...": "…"
+}
+```
+
+**3. POST /crawl-stream**
+
+- Stream each page as soon as it’s fetched:
+
+```bash
+curl -N -X POST http://localhost:8742/crawl-stream \
+  -H 'Content-Type: application/json' \
+  -d '{"url":"https://example.com","max_pages":5}'
+```
+
+- Response (NDJSON):
+
+```json
+{"url":"https://example.com","text":"Example Domain\n…"}
+{"url":"https://example.com/link1","text":"Link One\n…"}
+…
+```
+
+**4. GET /ping**
+
+- Health check endpoint:
+
+`curl http://localhost:8742/ping`
+
+- Response:
+
+`pong`
+
+**5. GET /mcp/metadata**
+
+- MCP discovery metadata:
+
+`curl http://localhost:8742/mcp/metadata`
+
+- Response:
+
+```json
+{
+  "name":"Gremlin Web Scraper MCP",
+  "description":"Scrapes and crawls text from URLs via HTTP endpoints…",
+  "version":"0.0.1",
+  "author":"StatikFinTech LLC",
+  "tags":["scraping","crawl","MCP","runtime"],
+  "endpoints":[…]
+}
+```
+
+
 
 ---
 
@@ -59,16 +131,16 @@ GremlinScraper is a lightweight HTTP MCP module designed to scrape visible text 
 > Name: Gremlin Web Scraper MCP  
 > Author: StatikFinTech LLC  
 > License: MIT  
-> Tags: #scraping, #text, #runtime, #gremlin
+> Tags: #scraping, #crawl, #runtime, #gremlin
 
 ---
 
 ## 🐾 Future Add-ons
 
 - PDF / EPUB / Markdown parsing
-- DOM element filtering
-- Scraping scheduling
-- Memory injection to GremlinGPT core
+- Selective DOM element filtering
+- Scheduling/recurring crawl and scrap jobs
+- Direct Memory injection to GremlinGPT core
 
 ---
 

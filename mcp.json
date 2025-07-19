@@ -1,12 +1,39 @@
 {
   "id": "gremlinScraper",
   "name": "Gremlin Web Scraper MCP",
-  "description": "Scrapes readable text from a URL using Flask and BeautifulSoup. Lightweight HTTP-based MCP.",
+  "description": "Scrapes and crawls text from URLs via HTTP endpoints. Supports single-page scrape, multi-page crawl, and streaming crawl.",
   "type": "http",
   "entry": "index.js",
   "url": "http://localhost:8742",
   "port": 8742,
   "gallery": true,
+  "endpoints": [
+    {
+      "path": "/scrape",
+      "method": "POST",
+      "description": "Single-page text scrape"
+    },
+    {
+      "path": "/crawl",
+      "method": "POST",
+      "description": "Multi-page crawl up to max_pages/depth"
+    },
+    {
+      "path": "/crawl-stream",
+      "method": "POST",
+      "description": "Streaming multi-page crawl"
+    },
+    {
+      "path": "/ping",
+      "method": "GET",
+      "description": "Health check"
+    },
+    {
+      "path": "/mcp/metadata",
+      "method": "GET",
+      "description": "Service metadata"
+    }
+  ],
   "metadata": {
     "version": "0.0.1",
     "author": "StatikFinTech, LLC",

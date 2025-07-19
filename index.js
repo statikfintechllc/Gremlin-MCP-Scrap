@@ -1,51 +1,74 @@
 #!/usr/bin/env node
 
-const { spawn } = require("child_process");
-const path = require("path");
-const chalk = require("chalk");
+/**
+ * GremlinGPT MCP Scraper Launcher
+ * 
+ * Boots the Flask MCP service with a clean, reliable startup
+ * - Installs pinned Python requirements
+ * - Launches the crawler server
+ */
 
-console.log(chalk.cyanBright("[MCP] Booting Gremlin Scraper MCP..."));
+const { spawn } = require('child_process');
+const path = require('path');
+const chalk = require('chalk');
 
-// Resolve full path in case of relative invocation
-const reqPath = path.resolve(__dirname, "requirements.txt");
-const serverPath = path.resolve(__dirname, "server.py");
+console.log(chalk.cyanBright('[MCP] Booting Gremlin Scraper MCP...'));
 
-// Step 1: Install dependencies
-const pip = spawn("pip", ["install", "-r", reqPath], {
-  stdio: "inherit",
-  shell: true
-});
+const BASE_DIR    = __dirname;
+const REQ_FILE    = path.join(BASE_DIR, 'requirements.txt');
+const SERVER_PY   = path.join(BASE_DIR, 'server.py');
 
-pip.on("exit", (code) => {
-  if (code !== 0) {
-    console.error(chalk.red(`[MCP] Pip install failed with code ${code}`));
-    process.exit(code);
-  }
+function installDependencies() {
+  return new Promise((resolve, reject) => {
+    console.log(chalk.green('[MCP] Installing Python dependencies...'));
+    const pip = spawn('pip3', ['install', '-r', REQ_FILE], {
+      stdio: 'inherit',
+      shell: true
+    });
 
-  console.log(chalk.green("[MCP] Python dependencies installed."));
+    pip.on('exit', (code) => {
+      if (code === 0) {
+        console.log(chalk.green('[MCP] Python dependencies installed.'));
+        resolve();
+      } else {
+        reject(new Error(`pip install failed with exit code ${code}`));
+      }
+    });
 
-  // Step 2: Launch the server
-  const server = spawn("python", [serverPath], {
-    stdio: "inherit",
+    pip.on('error', (err) => {
+      reject(new Error(`pip execution failed: ${err.message}`));
+    });
+  });
+}
+
+function launchServer() {
+  console.log(chalk.green('[MCP] Launching Flask server...'));
+  const server = spawn('python3', [SERVER_PY], {
+    stdio: 'inherit',
     shell: true
   });
 
-  server.on("exit", (serverCode) => {
-    if (serverCode === 0) {
-      console.log(chalk.greenBright(`[MCP] Server shut down cleanly.`));
+  server.on('exit', (code) => {
+    if (code === 0) {
+      console.log(chalk.greenBright('[MCP] Server shut down cleanly.'));
     } else {
-      console.warn(chalk.yellow(`[MCP] Server exited with code ${serverCode}`));
+      console.warn(chalk.yellow(`[MCP] Server exited with code ${code}`));
     }
-    process.exit(serverCode);
+    process.exit(code);
   });
 
-  server.on("error", (err) => {
+  server.on('error', (err) => {
     console.error(chalk.red(`[MCP] Failed to start server: ${err.message}`));
     process.exit(1);
   });
-});
+}
 
-pip.on("error", (err) => {
-  console.error(chalk.red(`[MCP] Pip execution failed: ${err.message}`));
-  process.exit(1);
-});
+(async () => {
+  try {
+    await installDependencies();
+    launchServer();
+  } catch (err) {
+    console.error(chalk.red(`[MCP] Setup error: ${err.message}`));
+    process.exit(1);
+  }
+})();
