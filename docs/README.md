@@ -21,11 +21,11 @@
 <div align="center"> 
  
  <img  
-	  src="https://img.shields.io/github/stars/statikfintechllc/GremlinGPT?style=social" alt="Stars"/>
+	  src="https://img.shields.io/github/stars/statikfintechllc/Gremlin-MCP-Scrap?style=social" alt="Stars"/>
   <img  
-	  src="https://img.shields.io/github/forks/statikfintechllc/GremlinGPT?style=social" alt="Forks"/>
+	  src="https://img.shields.io/github/forks/statikfintechllc/Gremlin-MCP-Scrap?style=social" alt="Forks"/>
   <img  
-	  src="https://img.shields.io/github/last-commit/statikfintechllc/GremlinGPT?style=social" alt="Last Commit"/>
+	  src="https://img.shields.io/github/last-commit/statikfintechllc/Gremlin-MCP-Scrap?style=social" alt="Last Commit"/>
 </div>
 
 <meta name="keywords" content="GremlinGPT, Recursive AI, Autonomous Agents, Sovereign Intelligence, Open Source AGI, Fair Use AI, Statik FinTech, LLM Seeding, AI Manifesto">
